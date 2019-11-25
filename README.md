@@ -1,0 +1,3 @@
+# README
+
+RPG Game Editor
