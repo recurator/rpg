@@ -59,12 +59,3 @@ end
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
-
-def signin_user(email, password)
-  post "/signin", { session: { email: email, password: password } }
-end
-
-def signout_user
-  get "/signout"
-  @user = nil
-end
