@@ -40,8 +40,6 @@ group :development, :test do
 
   gem 'database_cleaner'
 
-  gem 'webrat'
-
   gem 'factory_bot'
 end
 
