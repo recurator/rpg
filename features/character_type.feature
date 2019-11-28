@@ -4,7 +4,7 @@ Feature: Character Type
   Background: Clean database before each scenario
     Given Clean database tables "CharacterType, User"
 
-  Scenario: Sign out user can not access new character type page
+  Scenario: Signed out user can not access new character type page
     Given no current user
     When I am on the "/character_types/new" page
     Then I should see "Log in"
@@ -14,6 +14,7 @@ Feature: Character Type
     And I am on the "/character_types/new" page
     Then I should see "New Character Type"
     And I fill in "character_type_name" with "Druid"
+    And I attach a avatar to character type
     When I press "Create"
     Then I should see "Character type was successfully created."
 
@@ -23,6 +24,7 @@ Feature: Character Type
     When I am on the "/character_types/new" page
     Then I should see "New Character Type"
     And I fill in "character_type_name" with "Druid"
+    And I attach a avatar to character type
     When I press "Create"
     Then I should see "Name has already been taken"
 

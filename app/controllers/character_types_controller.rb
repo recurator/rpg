@@ -73,6 +73,6 @@ class CharacterTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def character_type_params
-      params.require(:character_type).permit(:user_id, :name)
+      params.require(:character_type).permit(:user_id, :name, :avatar)
     end
 end
