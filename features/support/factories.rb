@@ -6,4 +6,9 @@ FactoryBot.define do
     f.username { 'jabre' }
     f.password { 'secret' }
   end
+
+  factory :character_type do |f|
+    user
+    f.name { 'Druid' }
+  end
 end
