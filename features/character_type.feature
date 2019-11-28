@@ -34,3 +34,11 @@ Feature: Character Type
     Then I should see "Character Types"
     And I should see "Druid"
     And I should not see "Warlock"
+
+  Scenario: Signed in user can delete his own character types
+    Given User "jabre" created character type "Druid"
+    And User "jabre" is logged in
+    When I am on the "/character_types" page
+    Then I should see "Destroy"
+    When I follow "Destroy"
+    Then I should see "Character type was successfully destroyed."

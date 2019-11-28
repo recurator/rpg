@@ -13,7 +13,7 @@ end
 Given /^User "(.*)" is logged in$/ do |username|
   email    = "#{username}@example.net"
   password = "#{username}123456"
-  user = User.find_by(email: email) || FactoryBot.create(:user, email: email, username: username, password: password)
+  User.find_by(email: email) || FactoryBot.create(:user, email: email, username: username, password: password)
   visit '/users/sign_in'
   fill_in 'user_email', with: email
   fill_in 'user_password', with: password
