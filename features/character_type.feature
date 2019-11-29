@@ -18,7 +18,7 @@ Feature: Character Type
     When I press "Create"
     Then I should see "Character type was successfully created."
 
-  Scenario: Signed in user can not create two character types with the same name
+  Scenario: Signed in user can not create character type if that character type already exists
     Given User "sauron" created character type "Druid"
     And User "jabre" is logged in
     When I am on the "/character_types/new" page
@@ -37,7 +37,7 @@ Feature: Character Type
     And I should see "Druid"
     And I should not see "Warlock"
 
-  Scenario: Signed in user can delete his own character types
+  Scenario: Signed in user can delete his character types
     Given User "jabre" created character type "Druid"
     And User "jabre" is logged in
     When I am on the "/character_types" page
