@@ -4,7 +4,7 @@ class CharacterTypesController < ApplicationController
   # GET /character_types
   # GET /character_types.json
   def index
-    @character_types = current_user.character_types
+    @character_types = get_my_character_types
   end
 
   # GET /character_types/1
@@ -24,8 +24,7 @@ class CharacterTypesController < ApplicationController
   # POST /character_types
   # POST /character_types.json
   def create
-    @character_type = CharacterType.new(character_type_params)
-    @character_type.user = current_user
+    @character_type = new_character_type
 
     respond_to do |format|
       if @character_type.save
@@ -74,5 +73,13 @@ class CharacterTypesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def character_type_params
       params.require(:character_type).permit(:user_id, :name, :avatar)
+    end
+
+    def new_character_type
+      current_user.character_types.new(character_type_params)
+    end
+
+    def get_my_character_types
+      current_user.character_types
     end
 end
