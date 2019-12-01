@@ -1,9 +1,6 @@
 Feature: Character Type
   Signed in user should create a new game character type.
 
-  Background: Clean database before each scenario
-    Given Clean database tables "CharacterType, User"
-
   Scenario: Signed out user can not access new character type page
     Given no current user
     When I am on the "/character_types/new" page

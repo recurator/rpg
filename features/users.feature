@@ -1,9 +1,6 @@
 Feature: Users
   The application should allow users to signup and signin using email and password.
 
-  Background: Clean database records
-    Given Clean database tables "CharacterType, User"
-
   Scenario: User can create account
     Given no current user
     When I am on the "/users/sign_up" page

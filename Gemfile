@@ -45,6 +45,8 @@ group :development, :test do
   gem 'factory_bot'
 
   gem 'faker'
+
+  gem 'shoulda-matchers'
 end
 
 group :development do
