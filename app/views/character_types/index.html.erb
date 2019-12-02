@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Character Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @character_types %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Character Type', new_character_type_path %>

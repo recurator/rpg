@@ -13,7 +13,7 @@ Feature: Users
     Then I should see "Welcome! You have signed up successfully."
 
   Scenario: User enters wrong password
-    Given a registered user with the email "jabre@example.net" with password "secret" exists
+    Given a registered user "jabre" with the email "jabre@example.net" with password "secret" exists
     And I am on the "/users/sign_in" page
     And I should see "Log in"
     When I fill in "user_email" with "jabre@exmaple.net"
@@ -22,7 +22,7 @@ Feature: Users
     Then I should see "Invalid Email or password"
 
   Scenario: User is registered and enters correct email and password
-    Given a registered user with the email "jabre@example.net" with password "secret" exists
+    Given a registered user "jabre" with the email "jabre@example.net" with password "secret" exists
     And I am on the "/users/sign_in" page
     Then I should see "Log in"
     When I fill in "user_email" with "jabre@example.net"

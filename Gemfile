@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
+
+gem 'active_storage_validations'
 #
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -41,6 +43,10 @@ group :development, :test do
   gem 'database_cleaner'
 
   gem 'factory_bot'
+
+  gem 'faker'
+
+  gem 'shoulda-matchers'
 end
 
 group :development do
