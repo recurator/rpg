@@ -45,7 +45,7 @@ class CharacterTypesController < ApplicationController
     end
 
     def character_type_params
-      params.require(:character_type).permit(:user_id, :name, :avatar, character_attributes_attributes: [:id, :name, :value, :icon])
+      params.require(:character_type).permit(:user_id, :name, :avatar, character_attributes_attributes: [:id, :name, :value, :icon, :_destroy])
     end
 
     def new_character_type
