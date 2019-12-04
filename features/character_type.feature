@@ -12,8 +12,13 @@ Feature: Character Type
     Then I should see "New Character Type"
     And I fill in "character_type_name" with "Druid"
     And I attach a avatar to character type
+    And I fill in "character_type_character_attributes_attributes_0_name" with "Mana"
+    And I fill in "character_type_character_attributes_attributes_0_value" with "100"
+    And I attach a icon to character attribute
     When I press "Create"
     Then I should see "Character type was successfully created."
+    And I should see "Druid"
+    And I should see "Mana"
 
   Scenario: Signed in user can not create character type if that character type already exists
     Given User "sauron" created character type "Druid"

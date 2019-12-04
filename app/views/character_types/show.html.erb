@@ -3,6 +3,7 @@
 <p>
   <%= image_tag @character_type.avatar, width: "150px" %>
   <%= @character_type.name %>
+  <%= render @character_type.character_attributes %>
 </p>
 
 <%= link_to 'Edit', edit_character_type_path(@character_type) %> |

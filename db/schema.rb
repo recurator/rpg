@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_28_170604) do
+ActiveRecord::Schema.define(version: 2019_11_29_150805) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 2019_11_28_170604) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "character_attributes", force: :cascade do |t|
+    t.integer "character_type_id", null: false
+    t.string "name"
+    t.integer "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_type_id", "name"], name: "index_character_attributes_on_character_type_id_and_name", unique: true
+    t.index ["character_type_id"], name: "index_character_attributes_on_character_type_id"
   end
 
   create_table "character_types", force: :cascade do |t|
@@ -55,5 +65,6 @@ ActiveRecord::Schema.define(version: 2019_11_28_170604) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "character_attributes", "character_types"
   add_foreign_key "character_types", "users"
 end
