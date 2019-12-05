@@ -11,6 +11,10 @@ Then "I attach a avatar to character type" do
   attach_file('character_type_avatar', "#{::Rails.root}/spec/fixtures/dummy.png")
 end
 
+Then "I attach a icon to character attribute" do
+  attach_file('character_type_character_attributes_attributes_0_icon', "#{::Rails.root}/spec/fixtures/dummy.png")
+end
+
 def create_user(username)
   FactoryBot.create(:user, email: "#{username}@example.net", username: username, password: "#{username}123456")
 end

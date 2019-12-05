@@ -10,6 +10,7 @@ class CharacterTypesController < ApplicationController
 
   def new
     @character_type = get_my_character_types.new
+    @character_type.character_attributes.new
   end
 
   def create
@@ -37,14 +38,14 @@ class CharacterTypesController < ApplicationController
   end
 
   private
+
     def set_character_type
       @character_type = current_user.character_types.find_by(id: params[:id])
-
       redirect_to(character_types_url, notice: 'Character type was not found.') if @character_type.nil?
     end
 
     def character_type_params
-      params.require(:character_type).permit(:user_id, :name, :avatar)
+      params.require(:character_type).permit(:user_id, :name, :avatar, character_attributes_attributes: [:id, :name, :value, :icon, :_destroy])
     end
 
     def new_character_type
@@ -52,6 +53,7 @@ class CharacterTypesController < ApplicationController
     end
 
     def get_my_character_types
-      current_user.character_types
+      current_user.character_types.page params[:page]
     end
+
 end

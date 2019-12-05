@@ -21,6 +21,15 @@
     <%= form.text_field :name %>
   </div>
 
+  <div data-controller="fields-for">
+
+    <%= form.fields_for :character_attributes do |subform| %>
+      <%= render "fields", subform: subform %>
+    <% end %>
+    <%= button_tag("Add attribute", {data: { action: "fields-for#add", fields: form.fields_for(:character_attributes, CharacterAttribute.new, child_index: "new_field"){|subform| render("fields", subform: subform)}}}) %>
+
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

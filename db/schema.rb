@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_28_170604) do
+ActiveRecord::Schema.define(version: 2019_11_29_150805) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,9 +33,19 @@ ActiveRecord::Schema.define(version: 2019_11_28_170604) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "character_attributes", force: :cascade do |t|
+    t.integer "character_type_id", null: false
+    t.string "name", null: false
+    t.integer "value", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_type_id", "name"], name: "index_character_attributes_on_character_type_id_and_name", unique: true
+    t.index ["character_type_id"], name: "index_character_attributes_on_character_type_id"
+  end
+
   create_table "character_types", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_character_types_on_user_id"
@@ -52,8 +62,10 @@ ActiveRecord::Schema.define(version: 2019_11_28_170604) do
     t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "character_attributes", "character_types"
   add_foreign_key "character_types", "users"
 end
