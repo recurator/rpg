@@ -53,7 +53,7 @@ class CharacterTypesController < ApplicationController
     end
 
     def get_my_character_types
-      current_user.character_types
+      current_user.character_types.page params[:page]
     end
 
 end
