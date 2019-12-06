@@ -1,8 +1,8 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Character Types</h1>
+<br />
+<%= link_to 'New Character Type', new_character_type_path, class: "btn btn-primary btn-xs" %>
 
-<table>
+<table class="table table-stripped">
   <thead>
     <tr>
       <th></th>
@@ -18,8 +18,7 @@
 
 <br>
 
-<%= link_to 'New Character Type', new_character_type_path %>
 
-<div class="pages">
+<span class="mx-auto"
   <%= paginate @character_types %>
-</div>
+</span>

@@ -1,21 +1,21 @@
       <div data-target="fields-for.fields">
-        <div class="field">
+        <div class="form-check field">
           <%= subform.label :_destroy %>
-          <%= subform.check_box :_destroy, {data: {action: "fields-for#hide"}} %>
+          <%= subform.check_box :_destroy, {class: "form-check-input", data: {action: "fields-for#hide"}} %>
         </div>
 
-        <div class="field">
+        <div class="form-group field">
           <%= subform.label :icon %>
-          <%= subform.file_field :icon %>
+          <%= subform.file_field :icon, class: "form-control-file" %>
         </div>
 
-        <div class="field">
+        <div class="form-group field">
           <%= subform.label :name %>
-          <%= subform.text_field :name %>
+          <%= subform.text_field :name, class: "form-control" %>
         </div>
 
-        <div class="field">
+        <div class="form-group field">
           <%= subform.label :value %>
-          <%= subform.text_field :value %>
+          <%= subform.text_field :value, class: "form-control" %>
         </div>
       </div>
