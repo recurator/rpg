@@ -34,7 +34,11 @@ class CharacterTypesController < ApplicationController
   def destroy
     @character_type.destroy
 
-    redirect_to character_types_url, notice: 'Character type was successfully destroyed.'
+    respond_to do |format|
+      format.html { redirect_to character_types_url, notice: 'Character type was successfully destroyed.'}
+      @character_types = get_my_character_types
+      format.js { @character_types }
+    end
   end
 
   private

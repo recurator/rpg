@@ -3,5 +3,5 @@
         <td><%= character_type.name %></td>
         <td><%= render character_type.character_attributes %></td>
         <td><%= link_to 'Edit', edit_character_type_path(character_type), class: "btn btn-default btn-xs" %></td>
-        <td><%= link_to 'Destroy', character_type, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
+        <td><%= link_to 'Destroy', character_type, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
       </tr>
