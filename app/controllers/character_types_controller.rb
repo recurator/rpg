@@ -36,8 +36,7 @@ class CharacterTypesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to character_types_url, notice: 'Character type was successfully destroyed.'}
-      @character_types = get_my_character_types
-      format.js { @character_types }
+      format.js { @character_types = get_my_character_types }
     end
   end
 
