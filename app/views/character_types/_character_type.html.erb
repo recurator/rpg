@@ -1,8 +1,7 @@
       <tr>
-        <td><%= image_tag character_type.avatar, width: "150px" %></td>
+        <td><%= link_to image_tag(character_type.avatar, width: "100px", class: "img-thumbnail"), character_type %></td>
         <td><%= character_type.name %></td>
         <td><%= render character_type.character_attributes %></td>
-        <td><%= link_to 'Show', character_type %></td>
-        <td><%= link_to 'Edit', edit_character_type_path(character_type) %></td>
-        <td><%= link_to 'Destroy', character_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_character_type_path(character_type), class: "btn btn-default btn-xs" %></td>
+        <td><%= link_to 'Destroy', character_type, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
       </tr>

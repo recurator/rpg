@@ -1,36 +1,34 @@
-<%= form_with(model: character_type, local: true) do |form| %>
-  <% if character_type.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(character_type.errors.count, "error") %> prohibited this character_type from being saved:</h2>
+  <%= form_with(model: character_type, local: true) do |form| %>
+    <% if character_type.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(character_type.errors.count, "error") %> prohibited this character_type from being saved:</h2>
 
-      <ul>
-        <% character_type.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% character_type.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group field">
+        <%= form.label :avatar %>
+        <%= form.file_field :avatar, class: "form-control-file" %>
+    </div>
+
+    <div class="form-group field">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+
+    <div data-controller="fields-for" class: "form-group">
+      <%= form.fields_for :character_attributes do |subform| %>
+        <%= render "fields", subform: subform %>
+      <% end %>
+      <%= button_tag("Add attribute", {class: "btn btn-primary btn-xs", data: { action: "fields-for#add", fields: form.fields_for(:character_attributes, CharacterAttribute.new, child_index: "new_field"){|subform| render("fields", subform: subform)}}}) %>
+    </div>
+
+    <div class="actions form-group">
+      <%= form.submit class: "btn btn-primary" %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :avatar %>
-    <%= form.file_field :avatar %>
-  </div>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div data-controller="fields-for">
-
-    <%= form.fields_for :character_attributes do |subform| %>
-      <%= render "fields", subform: subform %>
-    <% end %>
-    <%= button_tag("Add attribute", {data: { action: "fields-for#add", fields: form.fields_for(:character_attributes, CharacterAttribute.new, child_index: "new_field"){|subform| render("fields", subform: subform)}}}) %>
-
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

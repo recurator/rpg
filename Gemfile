@@ -27,6 +27,8 @@ gem 'devise'
 gem 'active_storage_validations'
 
 gem 'kaminari'
+
+gem 'twitter-bootstrap-rails'
 #
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
