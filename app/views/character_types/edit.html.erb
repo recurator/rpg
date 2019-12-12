@@ -2,5 +2,5 @@
 
 <%= render 'form', character_type: @character_type %>
 
-<%= link_to 'Show', @character_type, class: "btn btn-default btn-xs" %> |
-<%= link_to 'Back', character_types_path, class: "btn btn-default btn-xs" %>
+<%= link_to 'Show', @character_type, class: "btn btn-default btn-xs", remote: true %> |
+<%= link_to 'Back', character_types_path, class: "btn btn-default btn-xs", remote: true %>

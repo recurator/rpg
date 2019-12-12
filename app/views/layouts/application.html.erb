@@ -13,8 +13,6 @@
     <%= nav_bar fixed: :top, brand: "RPG Game Editor", responsive: true do %>
       <%= menu_group do %>
         <%= menu_item "Home", root_path %>
-        <%= menu_divider %>
-        <%= menu_item "Character Types", character_types_path %>
       <% end %>
       <%= menu_group pull: :right do %>
         <% if current_user %>
@@ -26,16 +24,16 @@
       <% end %>
     <% end %>
 
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-        <%= bootstrap_flash %>
+        <div class="col-mt-12 alert">
+          <%= bootstrap_flash %>
+        </div>
       </div>
       <div class="row">
-        <div class="col col-lg-2"></div>
-          <div class="col col-lg-8">
+        <div class="col-mt-10" id="content">
             <%= yield %>
-          </div>
-        <div class="col-2"></div>
+        </div>
       </div>
     </div>
 

@@ -17,7 +17,7 @@ class CharacterTypesController < ApplicationController
     @character_type = new_character_type
 
     if @character_type.save
-      redirect_to @character_type, notice: 'Character type was successfully created.'
+      render_show
     else
       render :new
     end
@@ -25,7 +25,7 @@ class CharacterTypesController < ApplicationController
 
   def update
     if @character_type.update(character_type_params)
-      redirect_to @character_type, notice: 'Character type was successfully updated.'
+      render_show(:update)
     else
       render :edit
     end
@@ -41,6 +41,12 @@ class CharacterTypesController < ApplicationController
   end
 
   private
+
+    def render_show(method = :create)
+        flash[:notice] = "Character type was successfully #{method}d."
+        flash.keep(:notice)
+        render js: "window.location = '#{character_type_path(@character_type)}'"
+    end
 
     def set_character_type
       @character_type = current_user.character_types.find_by(id: params[:id])
