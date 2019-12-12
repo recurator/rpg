@@ -44,7 +44,6 @@ class CharacterTypesController < ApplicationController
 
     def render_show(method = :create)
         flash[:notice] = "Character type was successfully #{method}d."
-        flash.keep(:notice)
         render js: "window.location = '#{character_type_path(@character_type)}'"
     end
 
