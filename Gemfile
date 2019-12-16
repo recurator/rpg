@@ -21,11 +21,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
-
 gem 'active_storage_validations'
-
 gem 'kaminari'
-
 gem 'twitter-bootstrap-rails'
 #
 # Use Active Storage variant
