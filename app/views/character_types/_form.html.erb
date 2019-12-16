@@ -1,4 +1,4 @@
-  <%= form_with(model: character_type, local: true) do |form| %>
+  <%= form_with(model: character_type) do |form| %>
     <% if character_type.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(character_type.errors.count, "error") %> prohibited this character_type from being saved:</h2>

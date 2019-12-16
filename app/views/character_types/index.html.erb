@@ -1,6 +1,6 @@
 <h1>Character Types</h1>
 <br />
-<%= link_to 'New Character Type', new_character_type_path, class: "btn btn-primary btn-xs" %>
+<%= link_to 'New Character Type', new_character_type_path, class: "btn btn-primary btn-xs", remote: true %>
 
 <table class="table table-stripped">
   <thead>
@@ -11,7 +11,7 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody id="character_types_data">
     <%= render @character_types %>
   </tbody>
 </table>
