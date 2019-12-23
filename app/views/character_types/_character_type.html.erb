@@ -1,7 +1,22 @@
-      <tr>
-        <td><%= link_to image_tag(character_type.avatar, width: "100px", class: "img-thumbnail"), character_type %></td>
-        <td><%= character_type.name %></td>
-        <td><%= render character_type.character_attributes %></td>
-        <td><%= link_to 'Edit', edit_character_type_path(character_type), class: "btn btn-default btn-xs", remote: true %></td>
-        <td><%= link_to 'Destroy', character_type, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-xs" %></td>
-      </tr>
+<div class="col-xs-6 col-md-3" id="character_type_<%= character_type.id %>">
+  <div class="thumbnail">
+
+    <div class="caption">
+      <h3><%= character_type.name %></h3>
+    </div>
+
+    <%= image_tag(character_type.avatar, width: "100px") %>
+
+    <%= link_to 'Add attribute', new_character_type_character_attribute_path(character_type), class: "btn btn-default btn-xs", remote: true, 'data-toggle' => "modal", 'data-target' => '#modal-window' %>
+
+    <div class="row">
+      <%= render character_type.character_attributes %>
+    </div>
+
+    <div class="btn-group btn-group-justified">
+      <%= link_to 'Edit', edit_character_type_path(character_type), class: "btn btn-primary" %>
+      <%= link_to 'Destroy', character_type, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+    </div>
+
+  </div>
+</div>

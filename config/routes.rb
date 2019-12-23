@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :character_types
+
+  resources :character_types do
+    resources :character_attributes
+  end
+
   devise_for :users
 
   as :user do

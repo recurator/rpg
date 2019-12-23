@@ -1,0 +1,8 @@
+$(".notice").remove();
+
+$(".form-group").removeClass("has-error");
+
+<% @character_type.errors.each do |field, message| %>
+  $('#<%= field %>block').append('<div class="notice"><%= escape_javascript(message) %></div>');
+  $('#<%= field %>block').closest(".form-group").addClass("has-error");
+<% end %>

@@ -6,4 +6,8 @@ class CharacterAttribute < ApplicationRecord
   validates_uniqueness_of :name, allow_blank: false, scope: :character_type
   validates :value, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :icon, attached: true, content_type: [:png, :jpeg]
+
+  def data
+    "#{name}: #{value}"
+  end
 end
